@@ -13,11 +13,10 @@ console.log(id)
 fetch(`http://localhost:3000/api/products/${id}`)
     .then ((res)=> res.json())
     .then ((productItem)=>{
-        //product(productItem)
-        console.log(productItem)
+        product(productItem)
     })
     .catch((err)=>{
-        console.log("oskour")
+        console.error(err)
     });
 
 //------------------------------------------------------------------------
@@ -25,9 +24,17 @@ fetch(`http://localhost:3000/api/products/${id}`)
 //------------------------------------------------------------------------ 
 
 function product(productItem){
-    let image = document.querySelector(".item__img");
-    let title = document.querySelector("#title");
-    let price = document.querySelector("#price");
-    let description = document.querySelector("#description");
-    let colors = document.querySelector("#colors");
+    const {imageUrl, altTxt, name, price, description, colors} = productItem;
+    let productImage = document.querySelector(".item__img");
+    let productTitle = document.querySelector("#title");
+    let productPrice = document.querySelector("#price");
+    let productDescription = document.querySelector("#description");
+    let productColors = document.querySelector("#colors");
+    productImage.innerHTML = `<img src="${imageUrl}" alt="${altTxt}">`;
+    productTitle.textContent = name;
+    productPrice.textContent = price;
+    productDescription.textContent = description;
+    for (const color of colors){
+        productColors.innerHTML += `<option value ="${color}">${color}</option>`
+    }
 }
