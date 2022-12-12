@@ -17,7 +17,7 @@ fetch("http://localhost:3000/api/products")
 // Affichage des articles de l'api sur la homepage
 //----------------------------------------------------------------------
 
-function Kanaps(index) {
+const Kanaps = (index) => {
     let productSection = document.querySelector("#items");
     for (let product of index) {
       productSection.innerHTML += 
