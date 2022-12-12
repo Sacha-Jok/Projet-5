@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------
-// Récupération des produits de l'api
+// Récupération des produits depuis l'api
 //------------------------------------------------------------------------ 
 
 fetch("http://localhost:3000/api/products")
@@ -9,6 +9,7 @@ fetch("http://localhost:3000/api/products")
     })
 
     .catch((err)=>{
+        console.error(err)
         document.querySelector(".titles").innerHTML = "<h1>Erreur de chargement des produits</h1>"
     });
 
