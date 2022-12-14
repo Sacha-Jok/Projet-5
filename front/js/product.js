@@ -36,19 +36,13 @@ let itemToCart = { id: id, color: "", quantity: 1};
 
 const product = (productItem)=> {
     const {imageUrl, altTxt, name, price, description, colors} = productItem;
-    let productImage = document.querySelector(".item__img");
-    let productTitle = document.querySelector("#title");
-    let productPageTitle = document.querySelector("title");
-    let productPrice = document.querySelector("#price");
-    let productDescription = document.querySelector("#description");
-    let productColors = document.querySelector("#colors");
-    productImage.innerHTML = `<img src="${imageUrl}" alt="${altTxt}">`;
-    productTitle.textContent = name;
-    productPageTitle.textContent = name;
-    productPrice.textContent = price;
-    productDescription.textContent = description;
+    document.querySelector(".item__img").innerHTML = `<img src="${imageUrl}" alt="${altTxt}">`;
+    document.querySelector("#title").textContent = name;
+    document.querySelector("title").textContent = name;
+    document.querySelector("#price").textContent = price;
+    document.querySelector("#description").textContent = description;
     for (const color of colors){
-        productColors.innerHTML += `<option value ="${color}">${color}</option>`
+        document.querySelector("#colors").innerHTML += `<option value ="${color}">${color}</option>`
     }
 }
 
@@ -83,8 +77,6 @@ document.querySelector("#quantity").addEventListener("input", (qty) => {
 //------------------------------------------------------------------------ 
 
 document.querySelector("#addToCart").addEventListener("click", () => {
-    console.log("produit a mettre au panier" , itemToCart);
-    console.log("Panier avant l'ajout" , cartStorage);
     const { quantity, color } = itemToCart;
     if (color && quantity && (quantity >= 1 && quantity <= 100)){
         document.querySelector("#addToCart").style.color = "rgb(0, 205, 0)";
@@ -102,16 +94,13 @@ document.querySelector("#addToCart").addEventListener("click", () => {
 const cart = () => {
     const search = (element) => (element.id === itemToCart.id && element.color === itemToCart.color);
     const index = cartStorage.findIndex(search);
-    console.log(index > -1? `L'index du produit est ${index}` : "Le produit n'existe pas encore dans le panier")
     if (index > -1) {
-        console.info("On update les quantités", cartStorage[index].quantity, " + ", itemToCart.quantity)
         cartStorage[index].quantity = cartStorage[index].quantity + itemToCart.quantity;
     } else {
         cartStorage = [...cartStorage, itemToCart]
     }
     console.log("Panier après l'ajout" , cartStorage);
     itemToCart = { id: id, color: itemToCartColor, quantity: itemToCartQuantity};
-
 }
 
 //------------------------------------------------------------------------
