@@ -114,7 +114,3 @@ const addToCart = () => {
     window.localStorage.setItem("Cart", JSON.stringify(cartStorage));
 }
 
-//------------------------------------------------------------------------
-//  Ajout du produit du panier dans le local storage 
-//------------------------------------------------------------------------
-

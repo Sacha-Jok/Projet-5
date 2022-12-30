@@ -74,31 +74,31 @@
               <p>Total (<span id="totalQuantity"><!-- 2 --></span> articles) : <span id="totalPrice"><!-- 84,00 --></span> €</p>
             </div>
             <div class="cart__order">
-              <form method="get" class="cart__order__form">
+              <form id="form" method="get" class="cart__order__form">
                 <div class="cart__order__form__question">
                   <label for="firstName">Prénom: </label>
-                  <input type="text" name="firstName" id="firstName" required>
-                  <p id="firstNameErrorMsg"><!-- ci est un message d'erreur --></p>
+                  <input type="text" name="firstName" id="firstName" class="input" placeholder="Patrick" pattern="[A-Za-z]{1,40}" title="Uniquement des lettres" required>
+                  <p class="errorMsg"><!-- ci est un message d'erreur --></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="lastName">Nom: </label>
-                  <input type="text" name="lastName" id="lastName" required>
-                  <p id="lastNameErrorMsg"></p>
+                  <input type="text" name="lastName" id="lastName" class="input" placeholder="Dupond" pattern="[A-Za-z]{1,40}" title="Uniquement des lettres" required>
+                  <p class="errorMsg"><!-- ci est un message d'erreur --></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="address">Adresse: </label>
-                  <input type="text" name="address" id="address" required>
-                  <p id="addressErrorMsg"></p>
+                  <input type="text" name="address" id="address" class="input" placeholder="25 rue Bellevue" pattern="([0-9]*)+ ([a-zA-Z,\. ]*)" title="Uniquement des lettres et des chiffres" required>
+                  <p class="errorMsg"><!-- ci est un message d'erreur --></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="city">Ville: </label>
-                  <input type="text" name="city" id="city" required>
-                  <p id="cityErrorMsg"></p>
+                  <input type="text" name="city" id="city" class="input" placeholder="75000 Paris" pattern="([0-9]{5})+ ([a-zA-Z]*)" title="Uniquement le code postal suivi du nom de la ville" required>
+                  <p class="errorMsg"><!-- ci est un message d'erreur --></p>
                 </div>
                 <div class="cart__order__form__question">
                   <label for="email">Email: </label>
-                  <input type="email" name="email" id="email" required>
-                  <p id="emailErrorMsg"></p>
+                  <input type="text"  name="email" id="email" class="input" placeholder="patrickdupond@mail.com" pattern="[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+" title="Uniquement une adresse mail valide" required>
+                  <p class="errorMsg"><!-- ci est un message d'erreur --></p>
                 </div>
                 <div class="cart__order__form__submit">
                   <input type="submit" value="Commander !" id="order">
