@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------
-// Récupération et afficahge de l'UUID de la commande
+// Récupération et affichage de l'UUID de la commande
 //----------------------------------------------------------------------
 
 const getOrderId = () => {
